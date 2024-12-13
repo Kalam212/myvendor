@@ -1,17 +1,5 @@
 <?php
-// Database connection
-$servername = "localhost"; // Nama server database Anda
-$username = "root";        // Username database Anda
-$password = "";            // Password database Anda
-$dbname = "myvendor"; // Nama database Anda
-
-// Membuat koneksi
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Memeriksa koneksi
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+include 'koneksi/koneksi.php';
 
 // Query SQL untuk mengambil jumlah pengguna, vendor, admin, dan logistik
 $sqlUsers = "SELECT COUNT(*) AS totalUsers FROM users";
@@ -49,7 +37,7 @@ $conn->close();
     <div class="sidebar">
       <div class="logo">
         <img src="img/pln-logo.png" alt="logo" id="logo_img">
-        <div class="logo_text">PLN <br>Indonesia Power</div>
+        <div class="logo_text">PLN <br>Asu Power</div>
         <i class='bx bx-menu-alt-right' id="btn"></i>
       </div>
 
@@ -64,11 +52,12 @@ $conn->close();
           </li>
 
           <li>
-            <a href="#">
+            <a href="berita_acara.php">
               <i class='bx bx-book'></i>
               <span class="links_name">Buat Berita Acara</span>
+            
+              <span class="tooltip">Buat Berita Acara</span>
             </a>
-            <span class="tooltip">Buat Berita Acara</span>
           </li>
 
           <li>
